@@ -1,0 +1,2 @@
+class CorpusConstructionError(Exception):
+    pass
