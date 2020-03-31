@@ -41,3 +41,25 @@ class Corpus:
             self.profiles[title] = text
 
         #TODO: Compare TextProfile values when allow_duplicates is false
+
+    def get_title_author_strings(self):
+        """
+        Return a list of strings describing all works in the Corpus by title and author
+            e.g. 'Hamlet by Shakespeare'
+        """
+        output = []
+        for text in list(self.profiles.values()):
+            output.append(f"{text.title} by {text.author}")
+        return output
+
+    def get_avg_text_length(self, round_whole=False):
+        """
+        Return average length of text for this Corpus
+            - round_whole -- optional ability to round returned float to nearest whole number
+        """
+        sum = 0.0
+        profile_list = list(self.profiles.values())
+        for text in profile_list:
+            sum += text.length
+        return round(sum/len(profile_list)) if round_whole else sum/len(profile_list)
+        
