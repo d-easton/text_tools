@@ -1,3 +1,4 @@
+#from .funcs import tokenize, word_count
 class TextProfile:
     """
     Basic class for grouping statistic and descriptive info about a particular text
